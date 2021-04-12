@@ -1,0 +1,160 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #263238;
+  --bg-secondary: #000a12;
+  --text-primary: #00c853;
+  --text-secondary: #1976d2;
+}
+
+.navbar {
+  position: fixed;
+  background: var(--bg-primary);
+  transition: 200ms ease;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+  color: white;
+}
+
+.nav-item:hover {
+  background: var(--bg-secondary);
+}
+
+.nav-item:hover i {
+  color: var(--text-secondary);
+}
+
+.nav-item:hover .link-text {
+  color: var(--text-primary);
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  text-decoration: none;
+}
+
+.link-text {
+  display: none;
+  margin-left: 2rem;
+  color: white;
+}
+
+.nav-link .icon {
+  min-width: 2rem;
+  margin: 0 1.5rem;
+  color: var(--text-primary);
+}
+
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: white;
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
+
+.logo i {
+  transform: rotate(0deg);
+  transition: 200ms;
+}
+
+.logo-text {
+  display: none;
+  position: absolute;
+  transition: 200ms;
+  left: -999px;
+}
+
+navbar:hover .logo-text {
+  display: inline;
+}
+
+.navbar:hover .logo i {
+  transform: rotate(-360deg);
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+  }
+
+  .nav-item:last-child {
+    display: none;
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+
+  .navbar:hover {
+    width: 16rem;
+  }
+
+  .navbar:hover .link-text {
+    display: inline;
+    transition: opacity 200ms;
+  }
+
+  .navbar:hover .logo i {
+    margin-left: 11rem;
+  }
+
+  .navbar:hover .logo-text {
+    left: 0px;
+  }
+}
